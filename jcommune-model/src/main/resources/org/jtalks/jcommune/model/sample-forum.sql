@@ -10,18 +10,7 @@ update COMPONENTS set DESCRIPTION = 'Available users: admin/admin registered/reg
   where CMP_ID = @forum_component_id;
 
 insert ignore into SECTIONS (SECTION_ID, UUID, `NAME`, DESCRIPTION, POSITION, COMPONENT_ID) VALUES
-  (1,(SELECT UUID() FROM dual),'Sport', 'All about sport', 1, @forum_component_id),
-  (2,(SELECT UUID() FROM dual),'Transport', 'How move from A to B', 2, @forum_component_id),
-  (3,(SELECT UUID() FROM dual),'Travels', 'Leave your home to see the world', 3, @forum_component_id),
-  (4,(SELECT UUID() FROM dual),'Music','Heaven for ears',4,@forum_component_id),
-  (5,(SELECT UUID() FROM dual),'History', 'Past, present and future', 5, @forum_component_id),
-  (6,(SELECT UUID() FROM dual),'Literature', 'Progress for your brain', 6, @forum_component_id),
-  (7,(SELECT UUID() FROM dual),'TV', 'Has this zombobox something interesting?', 7, @forum_component_id),
-  (8,(SELECT UUID() FROM dual),'Hi-tech', 'Technologies', 8, @forum_component_id),
-  (9,(SELECT UUID() FROM dual),'People', 'All about mankind', 9, @forum_component_id),
-  (10,(select UUID() from dual),'Leisure', 'Have free time?', 10, @forum_component_id),
-  (11,(select UUID() from dual),'For Automated testing only', 'This Section is used for Automated testing only', 11, @forum_component_id),
-  (12,(select UUID() from dual),'Invisible section', 'Invisible section', 12, @forum_component_id);
+  (1,(SELECT UUID() FROM dual),'life', 'life', 1, @forum_component_id);
   
 -- GROUPS BEGIN
 insert ignore into GROUPS (UUID, `NAME`, DESCRIPTION)
@@ -76,66 +65,8 @@ set @leaveCommentsInCodeReview_group_sid = concat('usergroup:',@leaveCommentsInC
 
 -- BRANCHES BEGIN
 insert ignore into BRANCHES (BRANCH_ID, UUID, `NAME`, DESCRIPTION, POSITION, SECTION_ID, MODERATORS_GROUP_ID) VALUES
-  (1, UUID(), 'Curling', 'Brooms and stones', 0, 1, 1),
-  (2, UUID(), 'Cricet', 'Balls and bats', 1, 1 ,1),
-  (3, UUID(), 'Field hockey', 'Sticks and balls on the grass', 2, 1 ,1),
-  (4, UUID(), 'Korfball', 'It is NOT basketball!!', 3, 1 ,1),
-  (5, UUID(), 'Sepak takraw', 'Rattan balls,', 4, 1 ,1),
-  
-  (6, UUID(), 'Bicycle', 'Two wheels', 0, 2, 1),
-  (7, UUID(), 'Rickshaw', '', 1, 2 ,1),
-  (8, UUID(), 'Horse', 'Still actual', 2, 2 ,1),
-  (9, UUID(), 'On foot', 'Maybe some classic?', 3, 2 ,1),
-  (10, UUID(), 'UFO', 'What about some extreme', 4, 2 ,1),
-
-  (11, UUID(), 'Europe', 'Classic trips', 0, 3, 1),
-  (12, UUID(), 'Asia', 'Most populated', 1, 3 ,1),
-  (13, UUID(), 'America', 'Other hemisphere', 2, 3 ,1),
-  (14, UUID(), 'Africa', 'Too hot?', 3, 3 ,1),
-  (15, UUID(), 'Australia', 'Something very interesting', 4, 3 ,1),
-  
-  (16, UUID(), 'Classic', 'Checked by ages', 0, 4, 1),
-  (17, UUID(), 'Rock', 'Something heavier?', 1, 4, 1),
-  (18, UUID(), 'Electronic', '', 2, 4 ,1),
-  (19, UUID(), 'Pop', 'La-la', 3, 4 ,1),
-  (20, UUID(), 'Rap', 'Yo!', 4, 4 ,1),
-  
-  (21, UUID(), 'Ancient', 'Rome, Greece', 0, 5, 1),
-  (22, UUID(), 'Middle Ages', 'Europe', 1, 5 ,1),
-  (23, UUID(), 'Renaissance', 'Still Europe', 2, 5 ,1),
-  (24, UUID(), 'Modern', 'All Earth', 3, 5 ,1),
-  (25, UUID(), 'Future', 'Go ahead all over the world', 4, 5 ,1),
-  
-  (26, UUID(), 'Sci-fi', 'What about something unbelievable?', 0, 6, 1),
-  (27, UUID(), 'Adventures', 'Breathtaking books', 1, 6 ,1),
-  (28, UUID(), 'Fairytales', 'Not only for kids', 2, 6 ,1),
-  (29, UUID(), 'Realism', 'All about our life', 3, 6 ,1),
-  (30, UUID(), 'Comedy', 'LOL', 4, 6 ,1),
-  
-  (31, UUID(), 'TV shows', 'Funny and useful', 0, 7, 1),
-  (32, UUID(), 'News', 'From north to south', 1, 7 ,1),
-  (33, UUID(), 'Cartoon', 'Kids time', 2, 7 ,1),
-  (34, UUID(), 'Discovery', 'All Earth', 3, 7 ,1),
-  (35, UUID(), 'Advertisement', 'Part of the TV', 4, 7 ,1),
-  
-  (36, UUID(), 'Hard', 'Components', 0, 8, 1),
-  (37, UUID(), 'Soft', 'Applications', 1, 8 ,1),
-  (38, UUID(), 'Programming', 'Development', 2, 8 ,1),
-  (39, UUID(), 'Network', 'World wide web', 3, 8 ,1),
-  (40, UUID(), 'Electronics', 'Devices', 4, 8 ,1),
-  
-  (41, UUID(), 'Philosophy', 'Wisdom', 0, 9, 1),
-  (42, UUID(), 'Sociology', 'Human behaviour', 1, 9 ,1),
-  (43, UUID(), 'Psychology', 'Human motives', 2, 9 ,1),
-  (44, UUID(), 'Education', 'Evolution', 3, 9 ,1),
-  (45, UUID(), 'Religion', 'Human faith', 4, 9 ,1),
-  
-  (46, UUID(), 'Theatre', 'Performances', 0, 10, 1),
-  (47, UUID(), 'Cinema', 'New blockbusters', 1, 10 ,1),
-  (48, UUID(), 'Exhibitions', 'Art', 2, 10 ,1),
-  (49, UUID(), 'Competitions', 'Some sport', 3, 10 ,1),
-  (50, UUID(), 'Notification tests', 'All permissions for registered users', 0, 11 ,1),
-  (51, UUID(), 'Invisible Branch', 'used to check permission for admin', 0, 12, null);
+  (1, UUID(), 'food', 'food', 0, 1, 1),
+  (1, UUID(), 'mt', 'food', 0, 1, 1);
   -- BRANCHES END
 
 -- ****USERS CREATION BEGIN****
