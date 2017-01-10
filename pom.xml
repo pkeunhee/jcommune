@@ -4,9 +4,12 @@
 
   <groupId>org.jtalks.jcommune</groupId>
   <artifactId>jcommune</artifactId>
+  <!-- pom 상속용 (각 모듈에 설정 상속하기 위함) -->
   <packaging>pom</packaging>
   <version>3.11-SNAPSHOT</version>
   <name>${project.artifactId}</name>
+  
+  <!-- 본 프로젝트가 parent 이고 아래 module 에 명시된 프로젝트들에게 본 설정을 상속 시킨다. -->
   <modules>
     <module>jcommune-model</module>
     <module>jcommune-service</module>
@@ -16,6 +19,7 @@
     <module>jcommune-performance-tests</module>
   </modules>
 
+  <!-- 자식 프로젝트들에게 dependency 정보를 상속하기 위함. 자식 프로젝트에서는 version 을 생략하고 parent 에서 정의된걸 사용할 수 있다. -->
   <dependencyManagement>
     <dependencies>
       <!--Child modules -->
