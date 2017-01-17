@@ -115,8 +115,11 @@ public class AclGroupPermissionEvaluator implements PermissionEvaluator {
         List<GroupAce> controlEntries;
 
         try {
-            aces = ExtendedMutableAcl.castAndCreate(mutableAclService.readAclById(objectIdentity)).getEntries();
-            controlEntries = aclManager.getGroupPermissionsFilteredByPermissionOn(objectIdentity, jtalksPermission);
+			// DB 에 mask 값으로 저장된걸 지정된 permissionFactory 에 의해 permission 객체로 생성 한다.
+			// 해당 Object 의 ACl entry 목록을 불러 온다.
+            aces = ExtendedMutableAcl.castAndCreate(mutableAclService.readAclById(objectIdentity)).getEntries(); 
+			// ACL entry 에서 요청하는 permission 에 대한 목록 필터링
+            controlEntries = aclManager.getGroupPermissionsFilteredByPermissionOn(objectIdentity, jtalksPermission);  
         } catch (NotFoundException nfe) {
             aces = new ArrayList<>();
             controlEntries = new ArrayList<>();
