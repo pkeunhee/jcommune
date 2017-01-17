@@ -136,6 +136,12 @@
       <groupId>io.qala.datagen</groupId>
       <artifactId>qala-datagen</artifactId>
     </dependency>
+	<!-- jdbc 로깅 -->
+	<dependency>
+		<groupId>p6spy</groupId>
+		<artifactId>p6spy</artifactId>
+		<version>1.3</version>
+	</dependency>
   </dependencies>
 
   <build>
