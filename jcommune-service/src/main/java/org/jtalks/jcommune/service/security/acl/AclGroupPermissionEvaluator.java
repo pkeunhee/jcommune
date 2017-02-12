@@ -116,9 +116,9 @@ public class AclGroupPermissionEvaluator implements PermissionEvaluator {
 
         try {
 			// DB 에 mask 값으로 저장된걸 지정된 permissionFactory 에 의해 permission 객체로 생성 한다.
-			// 해당 Object 의 ACl entry 목록을 불러 온다.
+			// 해당 Object 의 ACl entry 목록을 불러 온다. Sid 에 대해 체크할때
             aces = ExtendedMutableAcl.castAndCreate(mutableAclService.readAclById(objectIdentity)).getEntries(); 
-			// ACL entry 에서 요청하는 permission 에 대한 목록 필터링
+			// ACL entry 에서 요청하는 permission 에 대한 목록 필터링. group 에 대한 체크할때
             controlEntries = aclManager.getGroupPermissionsFilteredByPermissionOn(objectIdentity, jtalksPermission);  
         } catch (NotFoundException nfe) {
             aces = new ArrayList<>();
@@ -131,8 +131,10 @@ public class AclGroupPermissionEvaluator implements PermissionEvaluator {
         if (isRestrictedForSid(sid, aces, jtalksPermission) ||
                 isRestrictedForGroup(controlEntries, authentication, jtalksPermission)) {
             return false;
-        } else if (isAllowedForSid(sid, aces, jtalksPermission) ||
-                isAllowedForGroup(controlEntries, authentication, jtalksPermission)) {
+        } else if (isAllowedForSid(sid, aces, jtalksPermission)
+        		|| isAllowedForGroup(controlEntries, authentication, jtalksPermission)) {
+        	
+        	// 비로그인인 경우는 sid 에 의해 체크, 로그인된 사용자는 속해 있는 그룹id 로 permission 을 체크 한다.
             return true;
         }
         return false;
