@@ -48,7 +48,7 @@ public class JtalksSidFactory implements SidFactory {
     }
 
     /**
-     * {@inheritDoc}
+     * 해당 유저의 spring-acl 에서 사용하는 Sid 추출. 비로그인인 경우 user:anonymousUser 로 Sid 생성 
      */
     @Override
     public Sid createPrincipal(Authentication authentication) {
