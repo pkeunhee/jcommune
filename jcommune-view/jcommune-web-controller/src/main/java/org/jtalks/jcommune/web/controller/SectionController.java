@@ -96,7 +96,7 @@ public class SectionController {
         */
         session.getId();
         List<Section> sections = sectionService.getAll();
-        sectionService.prepareSectionsForView(sections);
+        sectionService.prepareSectionsForView(sections); //해당 section 하위 각 branch 의 부가 정보 (post 개수, 마지막 작성글 등) 를 구한다.   
         return new ModelAndView("sectionList")
                 .addObject("sectionList", sections)
                 .addObject("messagesCount", forumStaticsProvider.getPostsOnForumCount())
