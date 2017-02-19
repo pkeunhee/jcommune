@@ -22,8 +22,7 @@
 <c:set var="visibleBranchesCount" value="0"/>
 <%--calculate the count of visible branches --%>
 <c:forEach var="branch" items="${section.branches}" varStatus="i">
-  <jtalks:hasPermission targetId='${branch.id}' targetType='BRANCH'
-                        permission='BranchPermission.VIEW_TOPICS'>
+  <jtalks:hasPermission targetId='${branch.id}' targetType='BRANCH' permission='BranchPermission.VIEW_TOPICS'>
     <c:set var="visibleBranchesCount" value="${visibleBranchesCount + 1}"/>
   </jtalks:hasPermission>
 </c:forEach>
