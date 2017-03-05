@@ -264,6 +264,13 @@
                         <fmt:message key='label.english'/>
                     </a>
                 </li>
+                <li id='lang-ko'>
+                    <a href="${pageContext.request.requestURL}/language/?lang=ko">
+                        <img src="${pageContext.request.contextPath}/resources/images/flags/en.png"
+                             alt="<fmt:message key='label.korean'/>"/>
+                        <fmt:message key='label.korean'/>
+                    </a>
+                </li>
                 <li id='lang-ru'>
                     <a href="${pageContext.request.requestURL}/language/?lang=ru">
                         <img src="${pageContext.request.contextPath}/resources/images/flags/ru.png"
