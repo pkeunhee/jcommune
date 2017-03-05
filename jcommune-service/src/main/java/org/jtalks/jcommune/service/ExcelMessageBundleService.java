@@ -14,29 +14,27 @@
  */
 package org.jtalks.jcommune.service;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.math.NumberUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.openxml4j.opc.OPCPackage;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 /**
- * 
- *
  * @author geunhui park
- * 
  */
 public class ExcelMessageBundleService {
+	private static final Logger LOGGER = LoggerFactory.getLogger(ExcelMessageBundleService.class);
+
 	private String path;
 	private String sheetIndex;
 
@@ -45,7 +43,7 @@ public class ExcelMessageBundleService {
 
 		OPCPackage pkg = null;
 		try {
-			pkg = OPCPackage.open(new File(path));
+			pkg = OPCPackage.open(this.getClass().getClassLoader().getResourceAsStream(path));
 			XSSFWorkbook wb = new XSSFWorkbook(pkg);
 
 			List<String> langList = Lists.newArrayList();
@@ -80,16 +78,14 @@ public class ExcelMessageBundleService {
 			}
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOGGER.error(e.toString(), e);
 		} finally {
 			try {
 				pkg.close();
-			} catch (IOException e) {
-				e.printStackTrace();
+			} catch (Exception e) {
+				LOGGER.error(e.toString(), e);
 			}
 		}
-
 		return map;
 	}
 

@@ -23,8 +23,8 @@
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd">
-  
-  <bean id="excelMessageBundleService" class="org.jtalks.jcommune.service.ExcelMessageBundleService">
- 	<property name="path" value="/Users/ghp-mac/Documents/MyWork/jcommune/jcommune-service/src/main/resources/messageBundle.xlsx"/>
-  </bean>
+
+	<bean id="excelMessageBundleService" class="org.jtalks.jcommune.service.ExcelMessageBundleService">
+		<property name="path" value="messageBundle.xlsx" />
+	</bean>
 </beans>
