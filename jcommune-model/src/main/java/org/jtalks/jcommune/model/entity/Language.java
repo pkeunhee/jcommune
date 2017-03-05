@@ -25,6 +25,7 @@ public enum Language {
     ENGLISH("label.english", "en"),
     RUSSIAN("label.russian", "ru"),
     SPANISH("label.spanish", "es"),
+    KOREAN("label.korean", "ko"),
     UKRAINIAN("label.ukrainian", "uk");
 
     private String label;
