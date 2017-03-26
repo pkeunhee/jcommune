@@ -496,7 +496,7 @@
   </bean>
   
   <bean id="excelMessageBundleService" class="org.jtalks.jcommune.service.ExcelMessageBundleService">
- 	<property name="path" value="/Users/ghp-mac/Documents/MyWork/jcommune/jcommune-service/src/main/resources/messageBundle.xlsx"/>
+ 	<property name="path" value="messageBundle.xlsx" />
   </bean>
 
   <beans profile="performance">

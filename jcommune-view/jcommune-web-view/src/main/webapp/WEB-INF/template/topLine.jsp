@@ -243,13 +243,10 @@
     </sec:authorize>
     <%-- END OF Logged in block --%>
 
-    <%-- Language chooser --%>
-        <%-- Language chooser --%>
+      <%-- Language chooser --%>
       <sec:authorize access="permitAll()">
         <li id="lang-selector-toggle-li" class="dropdown">
-            <div id="lang-selector-toggle" class="dropdown-toggle topline-dropdown-menu"
-                 data-toggle="dropdown"
-                 title="<fmt:message key='label.click_language'/>">
+            <div id="lang-selector-toggle" class="dropdown-toggle topline-dropdown-menu" data-toggle="dropdown" title="<fmt:message key='label.click_language'/>">
                 <a href="#" id="languages-menu">
                     <img src="${pageContext.request.contextPath}/resources/images/flags/<fmt:message key='locale.code'/>.png"
                          alt="<fmt:message key='locale.name'/>"/>
@@ -266,7 +263,7 @@
                 </li>
                 <li id='lang-ko'>
                     <a href="${pageContext.request.requestURL}/language/?lang=ko">
-                        <img src="${pageContext.request.contextPath}/resources/images/flags/en.png"
+                        <img src="${pageContext.request.contextPath}/resources/images/flags/ko.png"
                              alt="<fmt:message key='label.korean'/>"/>
                         <fmt:message key='label.korean'/>
                     </a>
