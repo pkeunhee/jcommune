@@ -14,6 +14,7 @@
  */
 package org.jtalks.jcommune.service;
 
+import java.io.File;
 import java.util.List;
 import java.util.Map;
 
@@ -43,7 +44,13 @@ public class ExcelMessageBundleService {
 
 		OPCPackage pkg = null;
 		try {
-			pkg = OPCPackage.open(this.getClass().getClassLoader().getResourceAsStream(path));
+			File file = new File(path);
+			if (file != null && file.exists()) { // absolute path
+				pkg = OPCPackage.open(file);
+			} else { // classpath
+				pkg = OPCPackage.open(this.getClass().getClassLoader().getResourceAsStream(path));
+			}
+
 			XSSFWorkbook wb = new XSSFWorkbook(pkg);
 
 			List<String> langList = Lists.newArrayList();
