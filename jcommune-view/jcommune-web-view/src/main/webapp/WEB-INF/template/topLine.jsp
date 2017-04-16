@@ -268,6 +268,7 @@
                         <fmt:message key='label.korean'/>
                     </a>
                 </li>
+                <%-- 
                 <li id='lang-ru'>
                     <a href="${pageContext.request.requestURL}/language/?lang=ru">
                         <img src="${pageContext.request.contextPath}/resources/images/flags/ru.png"
@@ -282,7 +283,7 @@
                         <fmt:message key='label.ukrainian'/>
                     </a>
                 </li>
-
+                --%>
             </ul>
         </li>
       </sec:authorize>
