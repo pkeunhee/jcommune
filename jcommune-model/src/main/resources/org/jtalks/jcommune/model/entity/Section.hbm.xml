@@ -29,6 +29,7 @@
         <property name="name" column="NAME" not-null="true"/>
         <property name="description" column="DESCRIPTION"/>
         <property name="position" column="POSITION"/>
+        <property name="use_yn" column="USE_YN"/>
 
         <list name="branches" cascade="all-delete-orphan">
             <cache usage="nonstrict-read-write"/>
