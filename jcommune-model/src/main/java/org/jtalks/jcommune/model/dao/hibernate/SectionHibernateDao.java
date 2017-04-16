@@ -17,15 +17,13 @@ package org.jtalks.jcommune.model.dao.hibernate;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Restrictions;
 import org.jtalks.common.model.dao.hibernate.GenericDao;
 import org.jtalks.common.model.entity.Branch;
 import org.jtalks.common.model.entity.Entity;
 import org.jtalks.common.model.entity.Group;
-
+import org.jtalks.common.model.entity.Section;
 import org.jtalks.jcommune.model.dao.SectionDao;
 import org.jtalks.jcommune.model.entity.JCUser;
-import org.jtalks.jcommune.model.entity.Section;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -54,10 +52,8 @@ public class SectionHibernateDao extends GenericDao<Section> implements SectionD
     public List<Section> getAll() {
         List<Section> sectionList = session()
                 .createCriteria(Section.class)
-                //.add(Restrictions.eq("use_yn", "Y"))
                 .addOrder(Order.asc("position"))
-                //.setCacheable(true).list();
-                .setCacheable(false).list();
+                .setCacheable(true).list();
         return sectionList;
     }
 

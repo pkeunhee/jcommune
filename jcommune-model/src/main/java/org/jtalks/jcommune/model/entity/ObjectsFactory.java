@@ -18,6 +18,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.RandomUtils;
 import org.joda.time.DateTime;
 import org.jtalks.common.model.entity.Group;
+import org.jtalks.common.model.entity.Section;
 import org.jtalks.common.model.entity.User;
 
 import java.lang.reflect.InvocationTargetException;

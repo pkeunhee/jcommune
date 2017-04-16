@@ -14,8 +14,8 @@
  */
 package org.jtalks.jcommune.service;
 
+import org.jtalks.common.model.entity.Section;
 import org.jtalks.jcommune.model.entity.Post;
-import org.jtalks.jcommune.model.entity.Section;
 import org.jtalks.jcommune.plugin.api.exceptions.NotFoundException;
 import org.springframework.security.access.AccessDeniedException;
 
