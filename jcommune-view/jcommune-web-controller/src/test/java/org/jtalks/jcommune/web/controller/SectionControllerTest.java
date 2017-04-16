@@ -14,8 +14,8 @@
  */
 package org.jtalks.jcommune.web.controller;
 
-import org.jtalks.common.model.entity.Section;
 import org.jtalks.jcommune.service.SectionService;
+import org.jtalks.jcommune.model.entity.Section;
 import org.jtalks.jcommune.plugin.api.exceptions.NotFoundException;
 import org.jtalks.jcommune.service.nontransactional.LocationService;
 import org.jtalks.jcommune.plugin.api.web.dto.Breadcrumb;

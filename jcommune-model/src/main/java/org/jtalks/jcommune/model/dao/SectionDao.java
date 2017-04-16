@@ -16,8 +16,8 @@ package org.jtalks.jcommune.model.dao;
 
 import org.jtalks.common.model.dao.Crud;
 import org.jtalks.common.model.entity.Branch;
-import org.jtalks.common.model.entity.Section;
 import org.jtalks.jcommune.model.entity.JCUser;
+import org.jtalks.jcommune.model.entity.Section;
 
 import java.util.List;
 

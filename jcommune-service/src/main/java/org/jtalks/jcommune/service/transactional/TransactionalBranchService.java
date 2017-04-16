@@ -16,7 +16,6 @@ package org.jtalks.jcommune.service.transactional;
 
 import org.jtalks.common.model.dao.GroupDao;
 import org.jtalks.common.model.entity.Group;
-import org.jtalks.common.model.entity.Section;
 import org.jtalks.common.model.permissions.BranchPermission;
 import org.jtalks.common.model.permissions.JtalksPermission;
 import org.jtalks.jcommune.model.dao.BranchDao;
@@ -25,6 +24,7 @@ import org.jtalks.jcommune.model.dao.TopicDao;
 import org.jtalks.jcommune.model.dto.GroupsPermissions;
 import org.jtalks.jcommune.model.dto.PermissionChanges;
 import org.jtalks.jcommune.model.entity.Branch;
+import org.jtalks.jcommune.model.entity.Section;
 import org.jtalks.jcommune.model.entity.Topic;
 import org.jtalks.jcommune.plugin.api.service.PluginBranchService;
 import org.jtalks.jcommune.service.BranchLastPostService;
