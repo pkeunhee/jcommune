@@ -123,17 +123,33 @@ public class AclGroupPermissionEvaluator implements PermissionEvaluator {
 			controlEntries = new ArrayList<>();
 		}
 		if (jtalksPermission instanceof ProfilePermission && authentication.getPrincipal() instanceof JCUser) {
-			if (isRestrictedPersonalPermission(authentication, jtalksPermission))
+			if (isRestrictedPersonalPermission(authentication, jtalksPermission)) {
 				return false;
-			else if (isAllowedPersonalPermission(authentication, jtalksPermission))
+			}
+			if (isAllowedPersonalPermission(authentication, jtalksPermission)) {
 				return true;
+			}
 		}
-		if (isRestrictedForSid(sid, aces, jtalksPermission) || isRestrictedForGroup(controlEntries, authentication, jtalksPermission)) {
+
+		// 제한 sid 여부 체크
+		if (isRestrictedForSid(sid, aces, jtalksPermission)) {
 			return false;
-		} else if (isAllowedForSid(sid, aces, jtalksPermission) || isAllowedForGroup(controlEntries, authentication, jtalksPermission)) {
-			// 비로그인인 경우는 sid 에 의해 체크, 로그인된 사용자는 속해 있는 그룹id 로 permission 을 체크 한다.
+		}
+
+		if (isRestrictedForGroup(controlEntries, authentication, jtalksPermission)) {
+			return false;
+		}
+
+		// 먼저 sid 에 대해 권한 목록에 있는지 확인
+		if (isAllowedForSid(sid, aces, jtalksPermission)) {
 			return true;
 		}
+
+		// sid 가 속하는 그룹이 권한 목록에 있는지 확인
+		if (isAllowedForGroup(controlEntries, authentication, jtalksPermission)) {
+			return true;
+		}
+
 		return false;
 	}
 
